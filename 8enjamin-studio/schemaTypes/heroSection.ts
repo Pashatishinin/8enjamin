@@ -4,13 +4,19 @@ export const heroSection = defineType({
   name: 'heroSection',
   title: 'Hero Section',
   type: 'document',
+
   fields: [
-    defineField({
+    {
       name: 'title',
       type: 'string',
       title: 'Title',
-    }),
+      validation: (Rule) => Rule.required(),
+    },
+    {
+      name: 'image',
+      type: 'image',
+      title: 'Image',
+      options: {hotspot: true},
+    },
   ],
-
-  __experimental_actions: ['update', 'publish'],
 })
