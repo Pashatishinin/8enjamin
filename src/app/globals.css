@@ -1,6 +1,31 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: "FuturaPTMedium";
+  src: url("/public/fonts/futura-pt/FuturaCyrillicMedium.ttf")
+    format("opentype");
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
   --background: #ffffff;
   --foreground: #171717;
+
+  --btn-gradient: linear-gradient(
+    135deg,
+    #5a4f84 10%,
+    #9189cb 50%,
+    #5a4f84 90%
+  );
+
+  --primary-50: #fbf4f9;
+
+  --accent-700: #6e5fa3;
+
+  --border-button: #9189cb;
+}
+
+a {
+  font-weight: 600;
 }

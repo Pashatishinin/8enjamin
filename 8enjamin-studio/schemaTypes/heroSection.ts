@@ -18,5 +18,10 @@ export const heroSection = defineType({
       title: 'Image',
       options: {hotspot: true},
     },
+    {
+      name: 'goshopping',
+      type: 'string',
+      title: 'Link "GO SHOPPING"',
+    },
   ],
 })

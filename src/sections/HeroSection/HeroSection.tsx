@@ -2,6 +2,11 @@ import { PortableText, type SanityDocument } from "next-sanity";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "../../../8enjamin-studio/sanity-ulits";
+import LogoHero from "@/components/ui/LogoHero/LogoHero";
+import ScrollCube from "@/components/ui/ScrollCube/ScrollCube";
+import ButtonShop from "@/components/ui/ButtonShop/ButtonShop";
+
+// Sanity connect
 const HERO_QUERY = `*[
   _type == "heroSection"
 ][0]{title, image}`;
@@ -19,18 +24,22 @@ export default async function HeroSection() {
 
   const postImageUrl = post?.image ? urlFor(post.image)?.url() : null;
   return (
-    <section>
+    <section id="home">
       {postImageUrl ? (
         <img
+          loading="lazy"
           src={postImageUrl}
-          alt={post?.title || "Hero image"}
+          alt={post?.title || "background image"}
           className="aspect-video rounded-xl"
         />
       ) : (
         <p>Image not found</p>
       )}
+      <LogoHero />
       <h1>{post?.title || "No title"}</h1>
-      HeroSection
+
+      <ScrollCube />
+      <ButtonShop />
     </section>
   );
 }
