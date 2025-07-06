@@ -18,6 +18,7 @@
     #9189cb 50%,
     #5a4f84 90%
   );
+  --rose-500: #f274ac;
 
   --primary-50: #fbf4f9;
 
@@ -33,6 +34,21 @@ h1 {
   font-weight: 600;
 }
 
+h2 {
+  font-size: clamp(20px, 3vw + 1em, 48px);
+  letter-spacing: 0.8vw;
+  margin-bottom: 20px;
+  font-weight: 500;
+}
+
 h4 {
   font-size: 14px;
+}
+
+p {
+  font-size: clamp(16px, 2vw, 24px);
+  letter-spacing: 0.02em;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  font-weight: 200;
 }

@@ -23,18 +23,34 @@ const urlFor = (source: SanityImageSource) =>
     : null;
 const options = { next: { revalidate: 30 } };
 
+const ABOUT_QUERY = `*[_type == "aboutSection"][0]{
+  description,
+  images[]{
+    asset->{
+      _id,
+      url
+    },
+    alt
+  }
+}`;
+
 export default async function Home() {
   const hero = await client.fetch<SanityDocument>(HERO_QUERY, {}, options);
   const heroImageUrl = hero?.image
     ? (urlFor(hero.image)?.url() as string | null)
     : null;
 
+  const about = await client.fetch<SanityDocument>(ABOUT_QUERY, {}, options);
+  const aboutImages =
+    about?.images?.map((img: SanityImageSource) => urlFor(img)?.url() ?? "") ||
+    [];
+
   return (
     <div>
       <CustomCursor />
       {/* <HeaderSection /> */}
       <HeroSection post={hero} postImageUrl={heroImageUrl} />
-      <AboutSection />
+      <AboutSection post={about} postImageUrl={aboutImages} />
       <BestsellersSection />
       <WorksSection />
       <GallerySection />

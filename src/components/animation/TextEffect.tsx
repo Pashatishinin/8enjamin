@@ -1,6 +1,12 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, {
+  useRef,
+  ReactNode,
+  ReactElement,
+  cloneElement,
+  isValidElement,
+} from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
@@ -8,10 +14,20 @@ import SplitType from "split-type";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const TextEffect = ({ children, animateOnScroll = true, delay = 0 }) => {
-  const containerRef = useRef(null);
-  const splitRefs = useRef([]);
-  const lines = useRef([]);
+interface TextEffectProps {
+  children: ReactElement<any>; // строго ReactElement
+  animateOnScroll?: boolean;
+  delay?: number;
+}
+
+const TextEffect = ({
+  children,
+  animateOnScroll = true,
+  delay = 0,
+}: TextEffectProps) => {
+  const containerRef = useRef<HTMLDivElement | null>(null);
+  const splitRefs = useRef<SplitType[]>([]);
+  const lines = useRef<HTMLElement[]>([]);
 
   useGSAP(
     () => {
@@ -22,17 +38,17 @@ const TextEffect = ({ children, animateOnScroll = true, delay = 0 }) => {
         splitRefs.current = [];
         lines.current = [];
 
-        const elements = containerRef.current.hasAttribute("data-copy-wrapper")
+        const elements = containerRef.current?.hasAttribute("data-copy-wrapper")
           ? Array.from(containerRef.current.children)
           : [containerRef.current];
 
         elements.forEach((element) => {
-          const split = new SplitType(element, {
+          const split = new SplitType(element as HTMLElement, {
             types: "lines",
             lineClass: "line++",
           });
           splitRefs.current.push(split);
-          lines.current.push(...split.lines);
+          lines.current.push(...(split.lines as HTMLElement[]));
         });
 
         gsap.set(lines.current, { y: "100%", opacity: 0 });
@@ -68,8 +84,11 @@ const TextEffect = ({ children, animateOnScroll = true, delay = 0 }) => {
     { scope: containerRef, dependencies: [animateOnScroll, delay] }
   );
 
-  if (React.Children.count(children) === 1) {
-    return React.cloneElement(children, { ref: containerRef });
+  if (React.Children.count(children) === 1 && isValidElement(children)) {
+    // Явно указываем, что children - это ReactElement с типом компонента string (DOM)
+    return cloneElement(children as ReactElement<any, string>, {
+      ref: containerRef,
+    });
   }
 
   return (
