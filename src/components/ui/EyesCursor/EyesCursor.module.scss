@@ -1,0 +1,130 @@
+.lefteye {
+  border-radius: 50% 60% 60% 50%;
+  animation: moveLeftEye 4s infinite linear;
+  border: 0.3px solid black;
+}
+
+.righteye {
+  border-radius: 50% 60% 60% 50%;
+  animation: moveRightEye 4s infinite linear;
+  border: 0.3px solid black;
+}
+
+.eye {
+  animation: moveEye 4s infinite linear;
+}
+
+@keyframes moveEye {
+  0% {
+    transform: translateX(0) translateY(0);
+    /* Начальное положение */
+  }
+
+  20% {
+    transform: translateX(0) translateY(3px);
+    /* Двигаемся вправо и немного вверх */
+  }
+
+  30% {
+    transform: translateX(0) translateY(0px);
+    /* Двигаемся вправо и немного вверх */
+  }
+
+  50% {
+    transform: translateX(3px) translateY(0);
+    /* Вернуться в центр */
+  }
+
+  70% {
+    transform: translateX(3px) translateY(3px);
+    /* Вернуться в центр */
+  }
+
+  80% {
+    transform: translateX(3px) translateY(0);
+    /* Двигаемся влево и немного вниз */
+  }
+
+  100% {
+    transform: translateX(0) translateY(0);
+    /* Вернуться в центр */
+  }
+}
+
+@keyframes moveLeftEye {
+  0% {
+    height: 2rem;
+    width: 1.25rem;
+    /* Влево глаз будет на том же уровне */
+  }
+  30% {
+    width: 1.25rem;
+  }
+  40% {
+    height: 2rem;
+    width: 1.3rem;
+    /* Влево глаз будет на том же уровне */
+  }
+
+  50% {
+    height: 2.5rem;
+    width: 1.25rem;
+    /* Левый глаз ниже */
+  }
+
+  80% {
+    width: 1.25rem;
+    /* Левый глаз ниже */
+  }
+  90% {
+    height: 2.5rem;
+    width: 1.3rem;
+    /* Левый глаз ниже */
+  }
+
+  100% {
+    height: 2rem;
+    width: 1.25rem;
+  }
+}
+
+@keyframes moveRightEye {
+  0% {
+    height: 2.5rem;
+    width: 1.25rem;
+    /* Влево глаз будет на том же уровне */
+  }
+
+  30% {
+    width: 1.25rem;
+  }
+
+  40% {
+    height: 2.5rem;
+    width: 1.3rem;
+    /* Влево глаз будет на том же уровне */
+  }
+
+  50% {
+    height: 2rem;
+    width: 1.25rem;
+    /* Левый глаз ниже */
+  }
+
+  80% {
+    height: 2rem;
+    width: 1.25rem;
+    /* Левый глаз ниже */
+  }
+
+  90% {
+    height: 2rem;
+    width: 1.3rem;
+    /* Левый глаз ниже */
+  }
+
+  100% {
+    height: 2.5rem;
+    width: 1.25rem;
+  }
+}

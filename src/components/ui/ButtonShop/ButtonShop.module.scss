@@ -3,6 +3,7 @@
   background-size: 200% 200%;
   animation: shine 5s linear infinite;
   transition: all 0.2s ease;
+  box-shadow: rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
 
   &:hover {
     background: linear-gradient(var(--accent-700), var(--accent-700));

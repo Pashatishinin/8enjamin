@@ -1,11 +1,14 @@
 "use client";
 import { useRef } from "react";
 
-import Logo from "../../../../public/logo_hero.png";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
 import Image from "next/image";
 
-import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
+import Logo from "../../../../public/logo_hero.png";
+
+import styles from "./LogoHero.module.scss";
 
 const LogoHero = () => {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -44,12 +47,17 @@ const LogoHero = () => {
 
   return (
     <div
-      className="container2"
+      className="relative p-4 perspective-distant items-center flex justify-center"
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
     >
-      <Image src={Logo} alt="logo" className="logo" ref={logoRef} />
+      <Image
+        src={Logo}
+        alt="logo"
+        className={` ${styles.logo} relative mt-[clamp(0vh,10vw,20vh)] mb-[30vh] w-[clamp(70%,80%,90%)]`}
+        ref={logoRef}
+      />
     </div>
   );
 };
