@@ -15,7 +15,7 @@ import { client } from "../../8enjamin-studio/sanity-ulits";
 // Sanity connect
 const HERO_QUERY = `*[
   _type == "heroSection"
-][0]{title, image}`;
+][0]{title, image, link}`;
 const { projectId, dataset } = client.config();
 const urlFor = (source: SanityImageSource) =>
   projectId && dataset
@@ -24,16 +24,16 @@ const urlFor = (source: SanityImageSource) =>
 const options = { next: { revalidate: 30 } };
 
 export default async function Home() {
-  const post = await client.fetch<SanityDocument>(HERO_QUERY, {}, options);
-  const postImageUrl = post?.image
-    ? (urlFor(post.image)?.url() as string | null)
+  const hero = await client.fetch<SanityDocument>(HERO_QUERY, {}, options);
+  const heroImageUrl = hero?.image
+    ? (urlFor(hero.image)?.url() as string | null)
     : null;
 
   return (
     <div>
       <CustomCursor />
       {/* <HeaderSection /> */}
-      <HeroSection post={post} postImageUrl={postImageUrl} />
+      <HeroSection post={hero} postImageUrl={heroImageUrl} />
       <AboutSection />
       <BestsellersSection />
       <WorksSection />

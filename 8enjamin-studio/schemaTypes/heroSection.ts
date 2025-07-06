@@ -19,7 +19,7 @@ export const heroSection = defineType({
       options: {hotspot: true},
     },
     {
-      name: 'goshopping',
+      name: 'link',
       type: 'string',
       title: 'Link "GO SHOPPING"',
     },

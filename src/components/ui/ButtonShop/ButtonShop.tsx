@@ -30,6 +30,7 @@ const ButtonShop = ({ title = "GO SHOPPING", link = "#" }: Props) => {
           href={link}
           className={`${styles.btn} relative inline-block py-3 px-5 text-[#fbf4f9] rounded-xl tracking-widest text-base border border-solid border-[#9189cb]`}
           data-cursor="eye"
+          target="_blank"
         >
           {title}
         </a>

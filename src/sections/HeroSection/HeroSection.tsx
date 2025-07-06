@@ -89,7 +89,7 @@ export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
         <h1 className="text-[clamp(36px,5vw+0.8rem,72px)] uppercase text-[#fbf4f9] tracking-widest">
           {post?.title || "No title"}
         </h1>
-        <ButtonShop />
+        <ButtonShop link={post?.link} />
       </div>
 
       <ScrollCube />
