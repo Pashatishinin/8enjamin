@@ -52,3 +52,7 @@ p {
   word-break: break-word;
   font-weight: 200;
 }
+
+span {
+  font-size: 0.8rem;
+}

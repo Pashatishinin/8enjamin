@@ -12,63 +12,49 @@ import gsap from "gsap";
 
 import styles from "./HeroSection.module.scss";
 
-// // Sanity connect
-// const HERO_QUERY = `*[
-//   _type == "heroSection"
-// ][0]{title, image}`;
-// const { projectId, dataset } = client.config();
-// const urlFor = (source: SanityImageSource) =>
-//   projectId && dataset
-//     ? imageUrlBuilder({ projectId, dataset }).image(source)
-//     : null;
-// const options = { next: { revalidate: 30 } };
 interface HeroSectionProps {
   post: SanityDocument | null;
   postImageUrl: string | null;
 }
 
 export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
-  // const post = await client.fetch<SanityDocument>(HERO_QUERY, {}, options);
-  // useGSAP(() => {
-  //   gsap.fromTo(
-  //     ".bg",
-  //     {
-  //       scale: 1,
-  //     },
-  //     {
-  //       scale: 1.5,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: ".hero_section",
-  //         start: "top top",
-  //         end: "bottom top",
-  //         scrub: true,
-  //         // markers: true,
-  //       },
-  //     }
-  //   );
-  //   gsap.fromTo(
-  //     ".container2",
-  //     {
-  //       scale: 1,
-  //     },
-  //     {
-  //       scale: 0.7,
-  //       ease: "none",
-  //       scrollTrigger: {
-  //         trigger: ".hero_section",
-  //         start: "top top",
-  //         end: "bottom top",
-  //         scrub: true,
-  //         // markers: true,
-  //       },
-  //     }
-  //   );
-  // }, []);
+  useGSAP(() => {
+    gsap.fromTo(
+      "#bg",
+      {
+        scale: 1,
+      },
+      {
+        scale: 1.5,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+          // markers: true,
+        },
+      }
+    );
+    gsap.fromTo(
+      "#logohero",
+      {
+        scale: 1,
+      },
+      {
+        scale: 0.7,
+        ease: "none",
+        scrollTrigger: {
+          trigger: "#hero",
+          start: "top top",
+          end: "bottom top",
+          scrub: true,
+          // markers: true,
+        },
+      }
+    );
+  }, []);
 
-  // console.log("Fetched hero post:", post); // для отладки
-
-  // const postImageUrl = post?.image ? urlFor(post.image)?.url() : null;
   return (
     <section
       id="home"
@@ -76,6 +62,7 @@ export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
     >
       {postImageUrl ? (
         <img
+          id="bg"
           loading="lazy"
           src={postImageUrl}
           alt="background image"

@@ -47,6 +47,7 @@ const LogoHero = () => {
 
   return (
     <div
+      id="logohero"
       className="relative p-4 perspective-distant items-center flex justify-center"
       ref={containerRef}
       onMouseMove={handleMouseMove}
