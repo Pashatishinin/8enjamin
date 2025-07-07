@@ -17,7 +17,7 @@ interface AboutSectionProps {
 }
 
 const AboutSection = ({ post, postImageUrl }: AboutSectionProps) => {
-  console.log("MESSAGE", post);
+  // console.log("MESSAGE", post);
   const aboutRef = useRef<HTMLDivElement | null>(null);
 
   useGSAP(

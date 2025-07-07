@@ -19,9 +19,11 @@
     #5a4f84 90%
   );
   --rose-500: #f274ac;
+  --rose-800: #ff2962;
 
   --primary-50: #fbf4f9;
 
+  --accent-400: #a4a1d8;
   --accent-700: #6e5fa3;
   --accent-800: #5a4f84;
 
@@ -39,6 +41,13 @@ h2 {
   letter-spacing: 0.8vw;
   margin-bottom: 20px;
   font-weight: 500;
+}
+
+h3 {
+  margin: 0 10px;
+  font-size: clamp(14px, 3vw, 20px);
+  color: #242424;
+  letter-spacing: 0.2vw;
 }
 
 h4 {

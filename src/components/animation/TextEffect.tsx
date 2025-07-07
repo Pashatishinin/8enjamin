@@ -15,7 +15,7 @@ import SplitType from "split-type";
 gsap.registerPlugin(ScrollTrigger);
 
 interface TextEffectProps {
-  children: ReactElement<any>; // строго ReactElement
+  children: ReactElement<any>;
   animateOnScroll?: boolean;
   delay?: number;
 }
@@ -33,23 +33,17 @@ const TextEffect = ({
     () => {
       if (!containerRef.current) return;
 
-      // Ждём полной загрузки шрифтов
       document.fonts.ready.then(() => {
         splitRefs.current = [];
         lines.current = [];
 
-        const elements = containerRef.current?.hasAttribute("data-copy-wrapper")
-          ? Array.from(containerRef.current.children)
-          : [containerRef.current];
-
-        elements.forEach((element) => {
-          const split = new SplitType(element as HTMLElement, {
-            types: "lines",
-            lineClass: "line++",
-          });
-          splitRefs.current.push(split);
-          lines.current.push(...(split.lines as HTMLElement[]));
+        const split = new SplitType(containerRef.current!, {
+          types: "lines",
+          lineClass: "line++",
         });
+
+        splitRefs.current.push(split);
+        lines.current.push(...(split.lines as HTMLElement[]));
 
         gsap.set(lines.current, { y: "100%", opacity: 0 });
 
@@ -69,7 +63,6 @@ const TextEffect = ({
               trigger: containerRef.current,
               start: "top 80%",
               once: true,
-              // markers: true,
             },
           });
         } else {
@@ -84,18 +77,9 @@ const TextEffect = ({
     { scope: containerRef, dependencies: [animateOnScroll, delay] }
   );
 
-  if (React.Children.count(children) === 1 && isValidElement(children)) {
-    // Явно указываем, что children - это ReactElement с типом компонента string (DOM)
-    return cloneElement(children as ReactElement<any, string>, {
-      ref: containerRef,
-    });
-  }
-
-  return (
-    <div ref={containerRef} data-copy-wrapper="true">
-      {children}
-    </div>
-  );
+  return cloneElement(children, {
+    ref: containerRef,
+  });
 };
 
 export default TextEffect;

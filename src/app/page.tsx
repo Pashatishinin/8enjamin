@@ -34,6 +34,8 @@ const ABOUT_QUERY = `*[_type == "aboutSection"][0]{
   }
 }`;
 
+const BEST_QUERY = `*[_type == "bestsellersSection"]{title, image, link}`;
+
 export default async function Home() {
   const hero = await client.fetch<SanityDocument>(HERO_QUERY, {}, options);
   const heroImageUrl = hero?.image
@@ -44,6 +46,13 @@ export default async function Home() {
   const aboutImages =
     about?.images?.map((img: SanityImageSource) => urlFor(img)?.url() ?? "") ||
     [];
+  type BestsellerItem = SanityDocument & { imageUrl: string | null };
+  const best = await client.fetch<SanityDocument[]>(BEST_QUERY, {}, options);
+
+  const bestWithUrls: BestsellerItem[] = best.map((item) => ({
+    ...item,
+    imageUrl: item.image ? (urlFor(item.image)?.url() ?? null) : null,
+  }));
 
   return (
     <div>
@@ -51,7 +60,7 @@ export default async function Home() {
       {/* <HeaderSection /> */}
       <HeroSection post={hero} postImageUrl={heroImageUrl} />
       <AboutSection post={about} postImageUrl={aboutImages} />
-      <BestsellersSection />
+      <BestsellersSection post={bestWithUrls} />
       <WorksSection />
       <GallerySection />
       <FooterSection />

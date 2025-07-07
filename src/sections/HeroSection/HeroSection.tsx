@@ -6,7 +6,7 @@ import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "../../../8enjamin-studio/sanity-ulits";
 import LogoHero from "@/components/ui/LogoHero/LogoHero";
 import ScrollCube from "@/components/ui/ScrollCube/ScrollCube";
-import ButtonShop from "@/components/ui/ButtonShop/ButtonShop";
+import ButtonCTA from "@/components/ui/ButtonCTA/ButtonCTA";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 
@@ -76,7 +76,7 @@ export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
         <h1 className="text-[clamp(36px,5vw+0.8rem,72px)] uppercase text-[#fbf4f9] tracking-widest">
           {post?.title || "No title"}
         </h1>
-        <ButtonShop link={post?.link} />
+        <ButtonCTA link={post?.link} />
       </div>
 
       <ScrollCube />

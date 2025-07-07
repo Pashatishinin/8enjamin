@@ -2,14 +2,14 @@
 
 import GsapMagnetic from "../../animation/GsapMagnetic";
 
-import styles from "./ButtonShop.module.scss";
+import styles from "./ButtonCTA.module.scss";
 
 type Props = {
   title?: string;
   link?: string;
 };
 
-const ButtonShop = ({ title = "GO SHOPPING", link = "#" }: Props) => {
+const ButtonCTA = ({ title = "GO SHOPPING", link = "#" }: Props) => {
   // console.log("MESSAGE" + GsapMagnetic);
   const handleMouseEnter = () => {
     const event = new CustomEvent("show-eyes-cursor", { detail: true });
@@ -38,4 +38,4 @@ const ButtonShop = ({ title = "GO SHOPPING", link = "#" }: Props) => {
     </>
   );
 };
-export default ButtonShop;
+export default ButtonCTA;

@@ -1,0 +1,25 @@
+.card {
+  transform-style: preserve-3d;
+}
+
+.content {
+  backface-visibility: hidden;
+}
+
+.contentback {
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+}
+
+.hover {
+  transform: translate(-50%, -50%);
+}
+
+.inside {
+  background: radial-gradient(
+    circle,
+    rgba(232, 234, 247, 1) 40%,
+    rgba(188, 189, 229, 1) 100%
+  );
+  transform: translate(-50%, -50%);
+}
