@@ -38,7 +38,7 @@ const AboutSection = ({ post, postImageUrl }: AboutSectionProps) => {
   return (
     <section
       id="about"
-      className="bg-[#f274ac] py-32 px-[5vw] flex flex-wrap-reverse justify-center items-center gap-[2em] overflow-x-clip"
+      className="bg-[#f274ac] py-32 px-[60px] flex flex-wrap-reverse justify-center items-center gap-[2em] overflow-x-clip"
       ref={aboutRef}
     >
       <div className="relative py-[190px] px-[130px] flex justify-center items-center w-full h-full flex-1 basis-[360px] min-w-[300px] ">

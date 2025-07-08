@@ -15,41 +15,42 @@ export default function WorksSection({ post }: WorksSectionProps) {
   // });
   return (
     <section
-      className="bg-black w-screen relative p-10"
+      className="bg-[#fbf4f9] w-screen relative p-10 "
       style={{
-        height: `calc(${post.length * 400}vh + 50vh)`,
+        height: `calc(${post.length * 100}vh + 50vh)`,
       }}
     >
       {post.map((work, idx) => {
         const isOdd = idx % 2 === 1;
 
         const innerStyle = {
-          transform: `rotate(${isOdd ? 1 : -1}deg)`,
+          transform: `rotate(${isOdd ? idx * 1 : idx * -1}deg)`,
         };
 
         const wrapperClass = `
         sticky
-        top-0
+        top-[10vh]
         z-10
       `;
 
         const contentClass = `
-        flex 
-        ${isOdd ? "flex-row-reverse bg-[#e7bad9]" : "flex-row bg-[#a4a1d8]"}
-        rounded-xl 
-        w-full
-        min-h-[700px]
-        justify-between
-        items-center
-        p-[50px] 
-        gap-[2em] 
-        transition-transform
+        mb-[10vh]
+        rounded-2xl 
+        shadow-md
+        border-[0.3px]
+        border-solid
+        ${isOdd ? "bg-[#e7bad9] border-[#d78fc0]" : "bg-[#a4a1d8] border-[#9189cb]"}
+        
+      `;
+
+        const itemContentClass = `
+        ${isOdd ? "flex-row-reverse" : "flex-row"}
       `;
 
         return (
           <div key={idx} className={wrapperClass}>
             <div className={contentClass} style={innerStyle}>
-              <WorksContent post={work} />
+              <WorksContent post={work} className={itemContentClass} />
             </div>
           </div>
         );
