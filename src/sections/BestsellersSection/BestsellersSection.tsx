@@ -7,14 +7,14 @@ interface BestsellersSectionProps {
 }
 
 const Bestsellers = ({ post }: BestsellersSectionProps) => {
-  console.log("POST", post);
+  // console.log("POST", post);
 
-  post.forEach((item, index) => {
-    console.log(`📦 Пост #${index + 1}:`, item);
-    console.log(`   🏷️ Название: ${item.title}`);
-    console.log(`   🖼️ Image URL: ${item.imageUrl}`);
-    console.log("—".repeat(40));
-  });
+  // post.forEach((item, index) => {
+  //   console.log(`📦 Пост #${index + 1}:`, item);
+  //   console.log(`   🏷️ Название: ${item.title}`);
+  //   console.log(`   🖼️ Image URL: ${item.imageUrl}`);
+  //   console.log("—".repeat(40));
+  // });
 
   return (
     <section

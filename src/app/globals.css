@@ -33,7 +33,9 @@
 }
 
 body {
-  overflow-x: hidden;
+  overflow-x: clip;
+  height: 100%;
+  box-sizing: border-box;
   /* text-align: center; */
 }
 

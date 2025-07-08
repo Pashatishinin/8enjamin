@@ -36,6 +36,17 @@ const ABOUT_QUERY = `*[_type == "aboutSection"][0]{
 
 const BEST_QUERY = `*[_type == "bestsellersSection"]{title, image, link}`;
 
+const WORKS_QUERY = `*[_type == "worksSection"]{
+  title,
+  description,
+  images[]{
+    asset->{
+      _id,
+      url
+    }
+  }
+}`;
+
 export default async function Home() {
   const hero = await client.fetch<SanityDocument>(HERO_QUERY, {}, options);
   const heroImageUrl = hero?.image
@@ -46,12 +57,19 @@ export default async function Home() {
   const aboutImages =
     about?.images?.map((img: SanityImageSource) => urlFor(img)?.url() ?? "") ||
     [];
+
   type BestsellerItem = SanityDocument & { imageUrl: string | null };
   const best = await client.fetch<SanityDocument[]>(BEST_QUERY, {}, options);
 
   const bestWithUrls: BestsellerItem[] = best.map((item) => ({
     ...item,
     imageUrl: item.image ? (urlFor(item.image)?.url() ?? null) : null,
+  }));
+
+  const works = await client.fetch<SanityDocument[]>(WORKS_QUERY, {}, options);
+  const worksWithImageUrls = works.map((item) => ({
+    ...item,
+    imageUrls: item.images?.map((img: any) => urlFor(img)?.url() ?? "") ?? [],
   }));
 
   return (
@@ -61,7 +79,7 @@ export default async function Home() {
       <HeroSection post={hero} postImageUrl={heroImageUrl} />
       <AboutSection post={about} postImageUrl={aboutImages} />
       <BestsellersSection post={bestWithUrls} />
-      <WorksSection />
+      <WorksSection post={worksWithImageUrls} />
       <GallerySection />
       <FooterSection />
     </div>
