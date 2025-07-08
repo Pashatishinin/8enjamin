@@ -5,8 +5,8 @@ import styles from "./ScrollCube.module.scss";
 const ScrollCube = () => {
   return (
     <div
-      className="absolute left-[50%] transform -translate-x-1/2 bottom-[10vh] flex justify-center items-center
-    sm:right-[5vw] sm:left-auto"
+      className="absolute left-[50%] transform -translate-x-1/2 bottom-[20vh] flex justify-center items-center
+    sm:right-[5vw] sm:left-auto sm:bottom-[10vh]"
     >
       <div className="perspective-distant">
         <div className={` ${styles.cube} relative h-20 w-28`}>

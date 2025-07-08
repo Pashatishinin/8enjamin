@@ -33,7 +33,7 @@ const CardRotation: React.FC<CardRotationProps> = ({ children, delay = 0 }) => {
           start: `${delay * 200}px 60%`,
           end: "60% 80%",
           scrub: true,
-          markers: true,
+          // markers: true,
         },
       }
     );
