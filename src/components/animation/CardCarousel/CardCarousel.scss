@@ -1,0 +1,71 @@
+#slider-boxes {
+  display: flex !important;
+}
+
+.card_carousel {
+  overflow-x: clip;
+  width: 100vw;
+  max-width: 1400px; /* или ширина по твоему дизайну */
+  margin: 0 auto; /* чтобы центрировать */
+  position: relative;
+  padding: 0 16px;
+  min-height: 100vh; // гарантирует хотя бы высоту экрана, но не режет
+  padding-bottom: 100px;
+}
+.slick-slide > div {
+  display: flex;
+  justify-content: center;
+  padding: 0 16px;
+}
+
+.slick-slide {
+  max-width: 100% !important;
+  margin: 0 auto;
+}
+
+.slick-track {
+  display: flex !important;
+  justify-content: center;
+}
+
+.slick-list {
+  overflow: visible;
+}
+.custom-prev,
+.custom-next {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  bottom: -60px;
+  z-index: 5;
+  font-size: 32px;
+  color: var(--accent-800);
+  cursor: pointer;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  user-select: none;
+  transition:
+    color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.custom-prev {
+  left: 50%;
+  transform: translateX(-40px); // отодвигаем влево
+}
+
+.custom-next {
+  left: 50%;
+  transform: translateX(10px); // отодвигаем вправо
+}
+
+.custom-prev:hover {
+  transform: translateX(-40px) scale(1.1); // сохраняем смещение
+  color: var(--accent-700);
+}
+
+.custom-next:hover {
+  transform: translateX(10px) scale(1.1); // сохраняем смещение
+  color: var(--accent-700);
+}

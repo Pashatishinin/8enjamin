@@ -4,6 +4,7 @@ import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+import "./CardCarousel.scss";
 import PlayingCard from "../../ui/PlayingCard/PlayingCard";
 import CardRotation from "../CardRotation";
 import { FC } from "react";

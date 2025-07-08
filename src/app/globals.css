@@ -32,6 +32,11 @@
   --cube-color: rgba(251, 244, 249, 0.4);
 }
 
+body {
+  overflow-x: hidden;
+  /* text-align: center; */
+}
+
 h1 {
   font-weight: 600;
 }

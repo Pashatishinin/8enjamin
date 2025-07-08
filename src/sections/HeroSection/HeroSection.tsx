@@ -58,7 +58,7 @@ export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
   return (
     <section
       id="home"
-      className="sticky top-0 h-screen flex flex-col items-center justify-center "
+      className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-clip"
     >
       {postImageUrl ? (
         <img
