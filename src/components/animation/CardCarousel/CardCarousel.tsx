@@ -1,5 +1,8 @@
 "use client";
-
+import {
+  MdOutlineArrowCircleLeft,
+  MdOutlineArrowCircleRight,
+} from "react-icons/md";
 import Slider, { Settings } from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -27,11 +30,15 @@ interface ArrowProps {
 
 // Стрелки
 const CustomPrevArrow: FC<ArrowProps> = ({ onClick }) => (
-  <div className="custom-arrow custom-prev" onClick={onClick} />
+  <div className="custom-arrow custom-prev" onClick={onClick}>
+    <MdOutlineArrowCircleLeft />
+  </div>
 );
 
 const CustomNextArrow: FC<ArrowProps> = ({ onClick }) => (
-  <div className="custom-arrow custom-next" onClick={onClick} />
+  <div className="custom-arrow custom-next" onClick={onClick}>
+    <MdOutlineArrowCircleRight />
+  </div>
 );
 
 // Компонент

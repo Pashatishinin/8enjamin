@@ -30,7 +30,7 @@ const PlayingCard = forwardRef<HTMLDivElement, PlayingCardProps>(
             ></div>
 
             <div>
-              <div className="rounded-t-[15px] h-full overflow-hidden mx-[clamp(10px,2vw,20px)] mt-[clamp(10px,2vw,20px)] mb-[clamp(5px,1vw,10px)] border-[0.5px] border-solid border-[#a4a1d8]">
+              <div className="rounded-t-[15px] h-[300px] overflow-hidden mx-[clamp(10px,2vw,20px)] mt-[clamp(10px,2vw,20px)] mb-[clamp(5px,1vw,10px)] border-[0.5px] border-solid border-[#a4a1d8]">
                 <img
                   src={img}
                   alt=""
