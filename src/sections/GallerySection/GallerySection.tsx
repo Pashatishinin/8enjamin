@@ -36,7 +36,7 @@ const GallerySection = ({ post }: GallerySectionProps) => {
 
         picture.style.top = `${randomY}px`;
         picture.style.left = `${randomX}px`;
-        picture.style.transform = `translate(-50%, -50%) rotate(${randomRotate}deg)`;
+        picture.style.transform = `rotate(${randomRotate}deg)`;
 
         const dirX = (Math.random() - 0.5) * 3000;
         const dirY = (Math.random() - 0.5) * 3000;
@@ -117,8 +117,14 @@ const GallerySection = ({ post }: GallerySectionProps) => {
   ); // ⬅️ указываем DOM scope
 
   return (
-    <section id="gallery" className="gallery_section">
-      <div className="container" ref={containerRef}>
+    <section
+      id="gallery"
+      className="bg-[#fbf4f9] relative py-[190px] px-[130px] h-[100vh] w-[100vw]"
+    >
+      <div
+        className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+        ref={containerRef}
+      >
         {post.map((photo, index) => (
           <PhotoCard
             key={photo._id ?? index}

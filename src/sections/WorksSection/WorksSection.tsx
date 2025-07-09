@@ -39,7 +39,7 @@ export default function WorksSection({ post }: WorksSectionProps) {
         shadow-md
         border-[0.3px]
         border-solid
-        ${isOdd ? "bg-[#e7bad9] border-[#d78fc0]" : "bg-[#a4a1d8] border-[#9189cb]"}
+        ${isOdd ? "bg-[#a4a1d8] border-[#9189cb]" : "bg-[#e7bad9] border-[#d78fc0] "}
         
       `;
 
