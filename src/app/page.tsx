@@ -47,6 +47,8 @@ const WORKS_QUERY = `*[_type == "worksSection"]{
   }
 }`;
 
+const GALLERY_QUERY = `*[_type == "gallerySection"]{title, image}`;
+
 export default async function Home() {
   const hero = await client.fetch<SanityDocument>(HERO_QUERY, {}, options);
   const heroImageUrl = hero?.image
@@ -72,6 +74,19 @@ export default async function Home() {
     imageUrls: item.images?.map((img: any) => urlFor(img)?.url() ?? "") ?? [],
   }));
 
+  type GalleryItem = SanityDocument & { imageUrl: string | null };
+  const gallery = await client.fetch<SanityDocument[]>(
+    GALLERY_QUERY,
+    {},
+    options
+  );
+  const galleryWithUrls: GalleryItem[] = gallery.map((item) => ({
+    ...item,
+    imageUrl: item.image ? (urlFor(item.image)?.url() ?? null) : null,
+  }));
+
+  console.log("HELLO", galleryWithUrls);
+
   return (
     <div>
       <CustomCursor />
@@ -80,7 +95,7 @@ export default async function Home() {
       <AboutSection post={about} postImageUrl={aboutImages} />
       <BestsellersSection post={bestWithUrls} />
       <WorksSection post={worksWithImageUrls} />
-      <GallerySection />
+      <GallerySection post={galleryWithUrls} />
       <FooterSection />
     </div>
   );
