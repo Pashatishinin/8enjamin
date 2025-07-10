@@ -28,7 +28,7 @@ export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
         scale: 1.5,
         ease: "none",
         scrollTrigger: {
-          trigger: "#hero",
+          trigger: ".hero",
           start: "top top",
           end: "bottom top",
           scrub: true,
@@ -45,7 +45,7 @@ export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
         scale: 0.7,
         ease: "none",
         scrollTrigger: {
-          trigger: "#hero",
+          trigger: ".hero",
           start: "top top",
           end: "bottom top",
           scrub: true,
@@ -58,7 +58,7 @@ export default function HeroSection({ post, postImageUrl }: HeroSectionProps) {
   return (
     <section
       id="home"
-      className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-clip"
+      className="hero sticky top-0 h-screen flex flex-col items-center justify-center overflow-clip"
     >
       {postImageUrl ? (
         <img
