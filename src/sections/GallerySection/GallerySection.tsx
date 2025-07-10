@@ -16,7 +16,7 @@ interface GallerySectionProps {
 }
 
 const GallerySection = ({ post }: GallerySectionProps) => {
-  console.log("MESSAGE", post);
+  // console.log("MESSAGE", post);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const previousTouch = useRef<Touch | null>(null);
   let highestZIndex = 1;

@@ -85,7 +85,7 @@ export default async function Home() {
     imageUrl: item.image ? (urlFor(item.image)?.url() ?? null) : null,
   }));
 
-  console.log("HELLO", galleryWithUrls);
+  // console.log("HELLO", galleryWithUrls);
 
   return (
     <div>
