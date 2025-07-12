@@ -51,10 +51,9 @@ h2 {
 }
 
 h3 {
-  margin: 0 10px;
   font-size: clamp(14px, 3vw, 20px);
   /* color: #242424; */
-  letter-spacing: 0.2vw;
+  letter-spacing: 0.3vw;
 }
 
 h4 {

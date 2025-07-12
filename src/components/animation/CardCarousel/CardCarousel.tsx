@@ -11,9 +11,9 @@ import "./CardCarousel.scss";
 import PlayingCard from "../../ui/PlayingCard/PlayingCard";
 import CardRotation from "../CardRotation";
 import { FC } from "react";
-import { SanityDocument } from "next-sanity";
+import { Bestseller } from "../../../../lib/types";
 
-type BestsellerItem = SanityDocument & { imageUrl: string | null };
+type BestsellerItem = Bestseller & { imageUrl: string | null };
 
 interface CardCarouselProps {
   posts: BestsellerItem[];
@@ -42,7 +42,8 @@ const CustomNextArrow: FC<ArrowProps> = ({ onClick }) => (
 );
 
 // Компонент
-const CardCarousel: FC<CardCarouselProps> = ({ posts }) => {
+const CardCarousel: FC<CardCarouselProps> = ({ posts = [] }) => {
+  // console.log("MESSAGE", posts);
   const settings: Settings = {
     dots: false,
     infinite: false,

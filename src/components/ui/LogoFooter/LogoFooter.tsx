@@ -1,6 +1,6 @@
 const LogoFooter = () => {
   return (
-    <div className="logo_footer w-[50vw]">
+    <div className="logo_footer w-[80vw]">
       <svg
         id="_Шар_1"
         data-name="Шар_1"

@@ -1,12 +1,16 @@
 import { SanityDocument } from "next-sanity";
 import CardCarousel from "../../components/animation/CardCarousel/CardCarousel";
-type BestsellerItem = SanityDocument & { imageUrl: string | null };
+
+import type { Bestseller } from "../../../lib/types";
+
+type BestsellerItem = Bestseller & { imageUrl: string | null };
 
 interface BestsellersSectionProps {
-  post: BestsellerItem[];
+  posts: BestsellerItem[];
 }
 
-const Bestsellers = ({ post }: BestsellersSectionProps) => {
+const Bestsellers = ({ posts }: BestsellersSectionProps) => {
+  // console.log("MESSAGE1-", posts);
   // console.log("POST", post);
 
   // post.forEach((item, index) => {
@@ -22,7 +26,7 @@ const Bestsellers = ({ post }: BestsellersSectionProps) => {
       className="relative py-[120px] bg-[#fbf4f9] w-full h-[120vh] text-center"
     >
       <h2>BESTSELLERS</h2>
-      <CardCarousel posts={post} />
+      <CardCarousel posts={posts} />
     </section>
   );
 };

@@ -1,12 +1,13 @@
 import WorksContent from "@/components/ui/WorksContent/WorksContent";
 import { SanityDocument } from "next-sanity";
+import { Works } from "../../../lib/types";
 
-type WorksItem = SanityDocument & { imageUrls: [] };
+type WorksItem = Works & { imageUrls: string[] };
 
 interface WorksSectionProps {
   post: WorksItem[];
 }
-export default function WorksSection({ post }: WorksSectionProps) {
+export default function WorksSection({ post = [] }: WorksSectionProps) {
   // post.forEach((item, index) => {
   //   console.log(`📦 Пост #${index + 1}:`, item);
   //   console.log(`   🏷️ Название: ${item.title}`);

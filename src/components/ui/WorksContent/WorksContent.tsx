@@ -1,8 +1,9 @@
 import { SanityDocument } from "next-sanity";
 import TextEffect from "../../animation/TextEffect";
 import DragablePhotos from "@/components/animation/DragablePhotos";
+import { Works } from "../../../../lib/types";
 
-type WorksItem = SanityDocument & { imageUrls: [] };
+type WorksItem = Works & { imageUrls: string[] };
 
 interface WorksSectionProps {
   post: WorksItem;

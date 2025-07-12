@@ -1,6 +1,7 @@
 "use client";
 
 import { type SanityDocument } from "next-sanity";
+import { urlForImage } from "../../../lib/urlForImage";
 import imageUrlBuilder from "@sanity/image-url";
 import type { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { client } from "../../../8enjamin-studio/sanity-ulits";
@@ -9,6 +10,8 @@ import ScrollCube from "@/components/ui/ScrollCube/ScrollCube";
 import ButtonCTA from "@/components/ui/ButtonCTA/ButtonCTA";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+
+import { getHero } from "../../../lib/api";
 
 import styles from "./HeroSection.module.scss";
 

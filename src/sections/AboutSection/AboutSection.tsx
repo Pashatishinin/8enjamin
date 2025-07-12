@@ -9,11 +9,13 @@ import TextEffect from "../../components/animation/TextEffect";
 import { SanityDocument } from "next-sanity";
 import DragablePhotos from "@/components/animation/DragablePhotos";
 
+import type { AboutSection as AboutSectionType } from "../../../lib/types";
+
 gsap.registerPlugin(ScrollTrigger);
 
 interface AboutSectionProps {
-  post: SanityDocument | null;
-  postImageUrl: [];
+  post: AboutSectionType | null;
+  postImageUrl: string[];
 }
 
 const AboutSection = ({ post, postImageUrl }: AboutSectionProps) => {

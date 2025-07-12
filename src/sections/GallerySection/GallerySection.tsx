@@ -6,10 +6,11 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 import { SanityDocument } from "next-sanity";
 import PhotoCard from "@/components/ui/PhotoCard";
+import { Gallery } from "../../../lib/types";
 
 gsap.registerPlugin(ScrollTrigger);
 
-type GalleryItem = SanityDocument & { imageUrl: string | null };
+type GalleryItem = Gallery & { imageUrl: string | null };
 
 interface GallerySectionProps {
   post: GalleryItem[];
